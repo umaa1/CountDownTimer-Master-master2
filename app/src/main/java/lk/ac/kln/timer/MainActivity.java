@@ -3,6 +3,7 @@ package lk.ac.kln.timer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         if(savedInstanceState!=null){
             counter=savedInstanceState.getInt(CURRENT_COUNTER);
         }
-        running=true;
+
 
         countDown();
     }
@@ -55,6 +56,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+    protected void startcounter(View view){
+        running=true;
+
+    }
+
+    protected void stopCounter(View view){
+        running=false;
+
+    }
+
     @Override
     public void onPause(){
         super.onPause();
@@ -63,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
-    public void onStart(){
-        super.onStart();
+    public void onRestart(){
+        super.onRestart();
         running=true;
     }
 
