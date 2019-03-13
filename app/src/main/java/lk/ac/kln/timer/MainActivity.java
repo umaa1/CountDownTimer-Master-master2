@@ -46,8 +46,10 @@ public class MainActivity extends AppCompatActivity {
                 if(counter==0){
                     counter=99;
                 }
+                if(running){
+                    counter--;
+                }
 
-                counter--;
                 handler.postDelayed(this,1000);
             }
         });
@@ -61,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStop(){
         super.onStop();
-        wasRunning=true;
+        running=false;
     }
 }
 
